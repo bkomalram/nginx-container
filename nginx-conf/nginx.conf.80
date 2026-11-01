@@ -5,10 +5,10 @@ server {
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
-        server_name electric-api.shelterbaymarina.com;
+        server_name kimbo-ticket.duckdns.org;
 
         location / {
-                proxy_pass http://backend:80;
+                proxy_pass http://app:3000;
         }
 
         location ~ /.well-known/acme-challenge {

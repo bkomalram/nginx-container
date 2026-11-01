@@ -12,6 +12,7 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - dhparam:/etc/ssl/certs
+      - ./logs/nginx:/var/log/nginx
     networks:
       - public
       - containers
@@ -24,7 +25,8 @@ services:
       - web-static:/var/www/html
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email ingeniustechnologyfactory@gmail.com --force-renewal --agree-tos --no-eff-email -d kakeibo.duckdns.org
+    #command: certonly --webroot --webroot-path=/var/www/html --email ingeniustechnologyfactory@gmail.com --agree-tos --no-eff-email -d kimbo-ticket.duckdns.org
+    command: renew --quiet
 networks:
   public:
   private:
